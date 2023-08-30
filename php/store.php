@@ -3,8 +3,10 @@
 require('conexion.php');
 
 // Obtengo los datos del formulario
-$nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
+if (!empty($_POST['nombre'] && !empty($_POST['correo']))) {
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+}
 
 // Se creo la sentecia
 $sql = "INSERT INTO usuarios(nombre, correo) VALUES(:nombre, :correo)";
